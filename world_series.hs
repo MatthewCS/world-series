@@ -32,8 +32,7 @@ worldseries []
 worldseries series@(t:_)
   | count t series == 4
                     = [reverse series]
-  | otherwise       = (worldseries (t:series)) ++ (worldseries (opponent:series))
-    where opponent = if t == Dodgers then Rays else Dodgers
+  | otherwise       = (worldseries (Dodgers:series)) ++ (worldseries (Rays:series))
 
 
 -- Count the number of occurances of some element in a list
